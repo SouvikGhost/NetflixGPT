@@ -2,13 +2,17 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateFormData } from "../utils/validateFormData";
 import { auth } from "../utils/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
     const navigate =useNavigate()
+    const dispatch =useDispatch()
 
     const email=useRef("null");
+    const name=useRef("null");
     const password=useRef("null");
 
 
@@ -37,8 +41,18 @@ const Login = () => {
           createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
           .then((userCredential) => {
             const user = userCredential.user;
-            // console.log(user);
-            navigate("/browse");
+            updateProfile(user, {
+              displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/145422565?v=4"
+            }).then(() => {
+              const {uid,email,displayName,photoURL} = auth.currentUser;
+              dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+              // Profile updated!
+              navigate("/browse");
+            }).catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message)
+            });
+            
 
           })
           .catch((error) => {
@@ -87,6 +101,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && <input
+        ref={name}
           type="text"
           placeholder="Full Name"
           className="w-full my-4 p-3 rounded-md  bg-gray-500 placeholder:text-white outline-none text-md"

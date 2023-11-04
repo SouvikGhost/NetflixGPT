@@ -13,3 +13,6 @@ when user is signed in/signed up then useNavigate() navigate him to " /browse " 
 
 # create A Redux Store 
 => whenever user is signed up / signed in then that user Data should be save in my Redux Store 
+
+# important note for Updating user Data after createUserEmailandPassword API
+=> i use update API because createUserEmailandPassword is only for Email & Password . so i can not update directly photoURL and displayName ok ? that's why i need updateProfile API to do that . Now the problem is that when you sign up first time the displayName and photoURL is not updating if i reload then it will updated . When i reload then updateProfile API fired and update that data . That's why i use dispatch an action for updating that displayName and photoURL Data. 
