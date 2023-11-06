@@ -3,12 +3,11 @@ import Header from "./Header";
 import { validateFormData } from "../utils/validateFormData";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import {PROFILE_ICON} from "../utils/constant"
 
 const Login = () => {
-    const navigate =useNavigate()
     const dispatch =useDispatch()
 
     const email=useRef("null");
@@ -42,12 +41,11 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             updateProfile(user, {
-              displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/145422565?v=4"
+              displayName: name.current.value, photoURL: PROFILE_ICON
             }).then(() => {
               const {uid,email,displayName,photoURL} = auth.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
               // Profile updated!
-              navigate("/browse");
             }).catch((error) => {
               // An error occurred
               setErrorMessage(error.message)
@@ -67,9 +65,6 @@ const Login = () => {
           signInWithEmailAndPassword(auth, email.current.value,password.current.value)
             .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/browse");
-
-            // console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -90,8 +85,8 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
-        <img
+      <div className="absolute w-screen">
+        <img className=""
           src="https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="Backgrond Logo"
         />
