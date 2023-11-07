@@ -22,7 +22,11 @@ when user is signed in/signed up then useNavigate() navigate him to " /browse " 
 # unsubscribe our store when it not needed or when this component is unmounted
 => i am returning a function in useEffect() it means i am clearing my onAuthStateChanged function which is hanging in Header Component when i don't need it it means suppose when that component will unmount
 
-# making Custom Hook named " useNowPlayingMovies() "
+# making Custom Hook "
 => This useNowPlayingMovies() Hook is used to fetch NowPlayingMovies from API and Store it to Redux Store.
+=> This useUpcommingMovies() Hook is used to fetch UpcommingMovies from API and Store it to Redux Store.
+=> This useMovieTrailer() Hook is used to fetch MovieTrailer from API and Store it to Redux Store.
+=> This usePopularVideos() Hook is used to fetch PopularVideos from API and Store it to Redux Store.
+=> This topRatedMoviesList() Hook is used to fetch topRatedMoviesList from API and Store it to Redux Store.
 
 
