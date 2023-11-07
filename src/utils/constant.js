@@ -4,8 +4,11 @@ export const APIKEY_OPTION={
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWQyMTBkMzBiODg1Y2NlMzg2YWViMDNkNDFlMjY3ZiIsInN1YiI6IjY1NDc1ZWMwZDU1YzNkMDBmZjk1ZjM3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.af3-NPqVhxYzs7pt1437kjnA1TKhCO3nmh74m2Sp6EE'
+      Authorization: 'Bearer <TMDB_MOVIES_API_KEY>'
     }
   };
+<<<<<<< HEAD
 
 export const MOVIE_POSTER_IMG_URL="https://image.tmdb.org/t/p/w500"
+=======
+>>>>>>> f9e83e4a536df35d2a55c5ed0810ccafa28be574
