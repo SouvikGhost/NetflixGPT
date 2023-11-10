@@ -5,7 +5,7 @@ import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import {PROFILE_ICON} from "../utils/constant"
+import {BACKGROUND_IMAGE, PROFILE_ICON} from "../utils/constant"
 
 const Login = () => {
     const dispatch =useDispatch()
@@ -87,7 +87,7 @@ const Login = () => {
       <Header />
       <div className="absolute w-screen">
         <img className=""
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BACKGROUND_IMAGE}
           alt="Backgrond Logo"
         />
       </div>

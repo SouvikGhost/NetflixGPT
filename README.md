@@ -25,8 +25,20 @@ when user is signed in/signed up then useNavigate() navigate him to " /browse " 
 # making Custom Hook "
 => This useNowPlayingMovies() Hook is used to fetch NowPlayingMovies from API and Store it to Redux Store.
 => This useUpcommingMovies() Hook is used to fetch UpcommingMovies from API and Store it to Redux Store.
-=> This useMovieTrailer() Hook is used to fetch MovieTrailer from API and Store it to Redux Store.
+=> This useMovieTrailer() Hook is used to fetch MovieTrailer from API 
+and Store it to Redux Store.
 => This usePopularVideos() Hook is used to fetch PopularVideos from API and Store it to Redux Store.
 => This topRatedMoviesList() Hook is used to fetch topRatedMoviesList from API and Store it to Redux Store.
+
+
+# Make Language Dynamic ....
+=> i create SUPPORTED_LANGUAGE Array of Object which will be used to map() in <Header> Component .
+
+# Create Language Constant 
+=> whenever we changed language then that value={language.identifier} will come with en , hindi or bengali . And then that value will be used to match with " languageConstant.js " file  by doing --- "  languageConstant[languageKey].gptSearchPlaceholder  " 
+
+ languageConstant.languageKey.gptSearchPlaceholder will not work because languageConstant don't have properties called " languageKey " that's why we use languageConstant[languageKey].gptSearchPlaceholder to make dynamic 
+
+ # 
 
 

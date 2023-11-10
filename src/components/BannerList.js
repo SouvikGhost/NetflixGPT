@@ -1,7 +1,6 @@
 import BannerCard from "./BannerCard";
 
 const BannerList = ({ title, movies }) => {
-    console.log(movies);
     return (
       <div className="">
         <h1 className=" text-white py-4 text-3xl font-medium">{title}</h1>
