@@ -16,3 +16,7 @@ export const SUPPORTED_LANGUAGE=[
   {identifier:"bengali" , name:"Bengali"},
   {identifier:"hindi" , name:"Hindi"}
 ]
+
+
+
+export const OPENAI_APIKEY="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";
