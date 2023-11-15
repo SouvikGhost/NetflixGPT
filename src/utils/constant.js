@@ -4,7 +4,7 @@ export const APIKEY_OPTION={
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YWQyMTBkMzBiODg1Y2NlMzg2YWViMDNkNDFlMjY3ZiIsInN1YiI6IjY1NDc1ZWMwZDU1YzNkMDBmZjk1ZjM3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.af3-NPqVhxYzs7pt1437kjnA1TKhCO3nmh74m2Sp6EE'
+    Authorization: 'Bearer <YOUR_TMDB_API>'
   }
   };
 
@@ -19,4 +19,4 @@ export const SUPPORTED_LANGUAGE=[
 
 
 
-export const OPENAI_APIKEY="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";
+export const OPENAI_APIKEY="<YOUR_OPENAI_API_KEY>";
