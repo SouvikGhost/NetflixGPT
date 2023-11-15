@@ -39,6 +39,7 @@ and Store it to Redux Store.
 
  languageConstant.languageKey.gptSearchPlaceholder will not work because languageConstant don't have properties called " languageKey " that's why we use languageConstant[languageKey].gptSearchPlaceholder to make dynamic 
 
- # 
+ # Separate Page for Clicked Movie Card to show that Movie Details
+=> create a separate page for showing that movie details and movie trailer what user clicks .
 
 

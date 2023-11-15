@@ -19,4 +19,4 @@ export const SUPPORTED_LANGUAGE=[
 
 
 
-export const OPENAI_APIKEY="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";
+export const OPENAI_APIKEY="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";

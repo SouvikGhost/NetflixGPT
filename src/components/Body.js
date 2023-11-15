@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Login from "./Login"
 import Browse from "./Browse"
+import ClickCardDetails from "./ClickCardDetails"
 
 
 const Body = () => {
@@ -12,7 +13,11 @@ const Body = () => {
         {
             path:"/browse",
             element:<Browse/>
-        }
+        },
+        {
+            path:"/:id",
+            element:<ClickCardDetails/>
+        },
     ])
 
 

@@ -1,9 +1,13 @@
 import BannerCard from "./BannerCard";
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
+import { Link } from "react-router-dom";
 
 
 const BannerList = ({ title, movies }) => {
+  // const movieId =useParams()
+
+
   const sliderLeft = () => {
     var slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 50;
@@ -16,6 +20,7 @@ const BannerList = ({ title, movies }) => {
     // console.log("right clicked");
 
   }
+  // console.log(movies);
  
     return (
       <div className="">
@@ -26,7 +31,9 @@ const BannerList = ({ title, movies }) => {
               <IoIosArrowBack onClick={sliderLeft}  className="mt-20 md:mt-28 text-2xl md:text-4xl bg-gray-400 bg-opacity-40 cursor-pointer"/> 
             
             {movies?.map((movie) => (
-                <BannerCard key={movie.id} posterPath={movie.poster_path}/>
+              <Link  key={movie.id} to={`/${movie.id}`}>
+                <BannerCard posterPath={movie.poster_path}/>
+                </Link>
                 
                 ))}
                 <IoIosArrowForward onClick={sliderRight} className="mt-20 md:mt-28 text-2xl md:text-4xl absolute right-10 bg-gray-400 bg-opacity-40 cursor-pointer"/>
