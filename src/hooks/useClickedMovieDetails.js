@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { addClickedMovieTrailer, addClickedMoviedetails } from "../utils/movieSlice";
+import { addClickedMoviedetails } from "../utils/movieSlice";
 import { useDispatch } from "react-redux";
 import { APIKEY_OPTION } from "../utils/constant";
 

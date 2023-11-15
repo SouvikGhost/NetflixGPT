@@ -1,16 +1,21 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFILX_LOGO, SUPPORTED_LANGUAGE } from "../utils/constant"
 import { clearResult, toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/languageSlice";
+import { FaSearch } from "react-icons/fa";
+import { RxDropdownMenu } from "react-icons/rx";
+
+
 
 
 const Header = () => {
+  const [menuCard,setMenuCard]=useState(false)
   const dispatch =useDispatch()
 
   const user =useSelector(store=>store.user);
@@ -23,6 +28,9 @@ const Header = () => {
     // toggle gpt seacrh
     dispatch(toggleGptSearchView())
     dispatch(clearResult())
+  }
+  const handleShowMenuCard=()=>{
+    setMenuCard(!menuCard)
   }
 
 
@@ -60,7 +68,7 @@ const Header = () => {
     });
   },[])
   return (
-    <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+    <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between ">
       <img className="w-52 mx-auto md:mx-0" src={NETFILX_LOGO}
       alt="Netflix Logo" />
       
@@ -71,9 +79,21 @@ const Header = () => {
 
         {SUPPORTED_LANGUAGE.map((language)=> <option key={language.identifier} value={language.identifier} >{language.name}</option> )}
         </select>}
-        <button className="bg-blue-700 text-white my-6 px-3 mx-6 rounded-lg" onClick={handleGptSearch}>{showGptSearch ? "Go to Home":"Search"}</button>
+        <button className="bg-blue-700 text-white my-6 px-3 mx-6 rounded-lg" onClick={handleGptSearch}>{showGptSearch ? "Go to Home":<FaSearch />
+}</button>
         <img className="hidden md:block w-10 h-10 mt-6" src={user?.photoURL} alt="" />
-        <button className="bg-red-600 p-2 m-6 rounded-md text-white font-semibold" onClick={handleSignOut}>Sign out</button>
+        <button className="cursor-pointer" onClick={handleShowMenuCard}>
+        <RxDropdownMenu className="text-white text-3xl  ml-3 mr-9 "/>
+        </button>
+
+       {menuCard && <div className="bg-black text-white rounded-lg text-md bg-opacity-70 font-medium absolute top-[77px] right-5">
+          <ul className="m-2">
+            <li className="border-b-2 border-white mx-3 my-1 pb-1 text-center  cursor-pointer hover:text-blue-600">Home</li>
+            <li className="border-b-2 mx-3 my-1 pb-1 text-center cursor-pointer hover:text-blue-600">
+              <Link to="/account">Account</Link></li>
+            <li className="mx-3 my-1 pb-1 text-center cursor-pointer hover:text-blue-600 "><button  onClick={handleSignOut}>Signout</button></li>
+          </ul>
+        </div>}
       </div>}
     </div>
     

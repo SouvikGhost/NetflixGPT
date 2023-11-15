@@ -42,4 +42,5 @@ and Store it to Redux Store.
  # Separate Page for Clicked Movie Card to show that Movie Details
 => create a separate page for showing that movie details and movie trailer what user clicks .
 
-
+# make Menu Card 
+=> when i click that menu button it's showing that option - home , account and Signout 
